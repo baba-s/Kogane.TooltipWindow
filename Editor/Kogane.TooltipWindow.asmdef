@@ -1,0 +1,19 @@
+﻿{
+    "name": "Kogane.TooltipWindow",
+    "rootNamespace": "",
+    "references": [
+        "GUID:370301f3a15127240a7ff0f4a6abf9e3",
+        "GUID:478a2357cc57436488a56e564b08d223"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
