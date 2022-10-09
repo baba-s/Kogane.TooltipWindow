@@ -9,22 +9,29 @@ namespace Kogane.Internal
     {
         private static readonly Vector2 WINDOW_SIZE_OFFSET = new( 6, 4 );
 
-        private static readonly GUIStyle LABEL_STYLE = new( EditorStyles.label )
-        {
-            alignment = TextAnchor.UpperLeft,
-        };
-
         private readonly string               m_label;
+        private readonly GUIStyle             m_labelStyle;
         private readonly Vector2              m_windowSize;
         private readonly GUILayoutOption      m_labelHeight;
         private readonly EditorWaitForSeconds m_editorWaitForSeconds;
 
         private EditorCoroutine m_editorCoroutine;
 
-        public TooltipWindowContent( string text, float time )
+        public TooltipWindowContent
+        (
+            string text,
+            float  time,
+            int    fontSize
+        )
         {
+            m_labelStyle = new( EditorStyles.label )
+            {
+                alignment = TextAnchor.UpperLeft,
+                fontSize  = fontSize,
+            };
+
             var guiContent = new GUIContent( text );
-            var labelSize  = EditorStyles.label.CalcSize( guiContent );
+            var labelSize  = m_labelStyle.CalcSize( guiContent );
 
             m_label                = text;
             m_windowSize           = labelSize + WINDOW_SIZE_OFFSET;
@@ -63,7 +70,7 @@ namespace Kogane.Internal
 
         public override void OnGUI( Rect rect )
         {
-            EditorGUILayout.LabelField( m_label, LABEL_STYLE, m_labelHeight );
+            EditorGUILayout.LabelField( m_label, m_labelStyle, m_labelHeight );
         }
     }
 }
