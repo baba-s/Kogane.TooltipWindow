@@ -36,7 +36,7 @@ namespace Kogane.Internal
             m_label                = text;
             m_windowSize           = labelSize + WINDOW_SIZE_OFFSET;
             m_labelHeight          = GUILayout.Height( labelSize.y );
-            m_editorWaitForSeconds = new EditorWaitForSeconds( time );
+            m_editorWaitForSeconds = new( time );
         }
 
         public override void OnOpen()
